@@ -1,0 +1,45 @@
+#没有开发过api的经历，因此大部分都是问deepseek的。
+#通过做这个api对python开发有认知了。
+
+propmt1
+[要求]
+你需要首先fork这个代码仓库到你的github,然后完成开发后提交到你的github上面，最后只需要发你的github代码仓库连接给我们就可以
+回测品类为平安银行，回测周期为2023年1月1日到12月31日。本金为1,000,000,每次买入为本金的百分之20.滑点为万分之一。
+策略为当12日的价格均线穿越26日的价格均线时买入。当价格跌破26均线时卖出。你需要在backtest文件夹下完成策略的回测，并即将为后端提供结果
+你可以使用任意的python后端框架。你所需要实现的api: 第一个为post方法，为设置周期以及对应回测的股票。第二个为get方法，将该策略回测的结果的收益率,最后的总权益返回。
+4.最后你需要在README.md中说明你的api使用方法，方便我们进行测试。
+请问我要怎么构建这个api呀?
+
+answer1
+我将使用 Flask 框架创建一个简单的 REST API，包含两个端点：
+POST /backtest - 设置回测参数（股票代码、日期范围等）
+GET /results - 获取回测结果（收益率、总权益等）
+
+
+propmt2
+backtest/
+├── __init__.py
+├── app.py                # Flask 主应用
+├── strategy.py           # 均线策略实现
+├── backtester.py         # 回测引擎
+├── requirements.txt      # 依赖文件
+└── README.md             # API使用说明
+能详细说明下每个文档都该写什么呢？
+
+answer2:....
+
+propmt3
+@app.route('/backtest', methods=['POST'])是什么意思？
+
+answer3
+@app.route()
+Flask 的装饰器，用于将 URL 路径映射到 Python 函数（即访问该路径时触发对应的函数）。
+'/backtest'
+定义 API 的路径。例如，如果服务运行在 http://localhost:5000，完整端点将是 http://localhost:5000/backtest。
+methods=['POST']
+指定该端点仅接受 POST 请求（如果不指定，默认只允许 GET 请求）。
+
+propmt4
+能写一个关于这个api的readme文档给我吗？
+
+answer4....
